@@ -1,0 +1,162 @@
+<!DOCTYPE html>                      <!--trang quản lý chuyến đi-->
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quản Lý Chuyến Đi</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        h1 {
+            margin-bottom: 20px;
+        }
+        table {
+            margin-top: 15px;
+            background-color: #fff;
+        }
+        .table th, .table td {
+            vertical-align: middle;
+        }
+        .btn {
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Quản Lý Chuyến Đi</h1>
+    
+    <button class="btn btn-primary" onclick="showAddTripModal()">Thêm Chuyến Đi</button>
+    
+    <table class="table table-bordered">
+        <thead class="thead-light">
+            <tr>
+                <th>Điểm Đến</th>
+                <th>Ngày</th>
+                <th>Thời Gian (Ngày)</th>
+                <th>Giá</th>
+                <th>Trạng Thái</th>
+                <th>Hành Động</th>
+            </tr>
+        </thead>
+        <tbody id="tripTableBody">
+            <!-- Danh sách chuyến đi sẽ được thêm vào đây -->
+        </tbody>
+    </table>
+</div>
+
+<!-- Mô-đun Thêm Chuyến Đi -->
+<div class="modal" id="addTripModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Thêm Chuyến Đi</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Đóng">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <form id="addTripForm">
+                    <div class="form-group">
+                        <label for="addTripDestination">Điểm Đến</label>
+                        <input type="text" class="form-control" id="addTripDestination" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addTripDate">Ngày</label>
+                        <input type="date" class="form-control" id="addTripDate" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addTripDuration">Thời Gian (Ngày)</label>
+                        <input type="number" class="form-control" id="addTripDuration" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="addTripPrice">Giá</label>
+                        <input type="number" class="form-control" id="addTripPrice" required>
+                    </div>
+                </form>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Đóng</button>
+                <button type="button" class="btn btn-primary" onclick="addTrip()">Thêm</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script>
+    let trips = []; // Mảng lưu trữ chuyến đi
+
+    function showAddTripModal() {
+        $('#addTripModal').modal('show');
+    }
+
+    async function fetchTrips() {
+        const response = await fetch('http://localhost:5000/api/trips');
+        trips = await response.json();
+        updateTripTable();
+    }
+
+    async function addTrip() {
+        const destination = document.getElementById('addTripDestination').value;
+        const date = document.getElementById('addTripDate').value;
+        const duration = document.getElementById('addTripDuration').value;
+        const price = document.getElementById('addTripPrice').value;
+
+        const response = await fetch('http://localhost:5000/api/trips', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ destination, date, duration, price }),
+        });
+
+        const newTrip = await response.json();
+        trips.push(newTrip);
+        updateTripTable();
+        $('#addTripModal').modal('hide');
+        document.getElementById('addTripForm').reset();
+    }
+
+    function updateTripTable() {
+        const tableBody = document.getElementById('tripTableBody');
+        tableBody.innerHTML = ''; // Xóa dữ liệu cũ
+
+        trips.forEach(trip => {
+            const row = document.createElement('tr');
+            row.innerHTML = `
+                <td>${trip.destination}</td>
+                <td>${new Date(trip.date).toLocaleDateString()}</td>
+                <td>${trip.duration}</td>
+                <td>${trip.price}</td>
+                <td>${trip.status}</td>
+                <td>
+                    <button class="btn btn-danger" onclick="deleteTrip('${trip._id}')">Xóa</button>
+                </td>
+            `;
+            tableBody.appendChild(row);
+        });
+    }
+
+    async function deleteTrip(tripId) {
+        if (confirm('Bạn có chắc chắn muốn xóa chuyến đi này không?')) {
+            await fetch(`http://localhost:5000/api/trips/${tripId}`, {
+                method: 'DELETE',
+            });
+            trips = trips.filter(trip => trip._id !== tripId);
+            updateTripTable();
+        }
+    }
+
+    // Gọi hàm để lấy danh sách chuyến đi khi trang được tải
+    window.onload = fetchTrips;
+</script>
+
+</body>
+</html>
