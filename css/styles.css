@@ -1,0 +1,89 @@
+body {
+    background: linear-gradient(to bottom, #e0f7fa, #ffffff); /* Gradient từ màu xanh dương nhạt sang trắng */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh; /* Chiều cao tối thiểu bằng chiều cao của viewport */
+}
+/* footer */
+footer {
+    margin-top: auto; /* Đẩy footer xuống dưới cùng */
+}
+/* ------- */
+.input-group {
+    background-color: #f8f9fa; /* Màu nền cho thanh tìm kiếm */
+    padding: 15px; /* Khoảng cách bên trong */
+    border-radius: 50px; /* Bo tròn cho thanh tìm kiếm */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1); /* Hiệu ứng bóng đổ */
+}
+
+.input-group .input-group-text {
+    background-color: #ffffff; /* Màu nền cho các label */
+    border: 1px solid #ced4da; /* Đường viền cho label */
+}
+
+.input-group .form-control {
+    border: 1px solid #ced4da; /* Đường viền cho trường nhập */
+}
+
+.input-group .form-control:focus {
+    border-color: #007bff; /* Đổi màu viền khi focus */
+    box-shadow: none; /* Bỏ bóng đổ khi focus */
+}
+
+.separator {
+    width: 1px;
+    background-color: #ced4da; /* Màu của đường phân chia */
+    height: 30px; /* Chiều cao của đường phân chia */
+    margin: 0 10px; /* Khoảng cách hai bên */
+}
+
+.results {
+    margin-top: 20px;
+}
+
+.list-group-item {
+    cursor: pointer; /* Hiệu ứng con trỏ khi di chuột */
+}
+
+.list-group-item:hover {
+    background-color: #e9ecef; /* Màu nền khi hover */
+}
+
+.modal-header {
+    background-color: #f8f9fa; /* Màu nền cho đầu modal */
+}
+
+.modal-footer {
+    justify-content: space-between; /* Căn giữa các nút trong footer modal */
+}
+
+
+/* Đánh giá người dùng */
+.card {
+    border: none; /* Loại bỏ đường viền card */
+    transition: transform 0.3s; /* Hiệu ứng chuyển tiếp khi hover */
+    padding: 20px; /* Khoảng cách bên trong card */
+    height: 300px; /* Chiều cao của card */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Phóng to nhẹ khi hover */
+}
+
+.card-title {
+    font-weight: bold; /* Đậm tiêu đề */
+}
+
+.card-text {
+    margin-bottom: 10px; /* Khoảng cách dưới nội dung */
+}
+
+/* Đánh giá với biểu tượng sao */
+.star-rating {
+    color: #FFD700; /* Màu vàng cho sao */
+    font-size: 1.5em; /* Kích thước sao lớn hơn */
+}
+
+.star-rating .star {
+    margin: 0 2px; /* Khoảng cách giữa các sao */
+}
