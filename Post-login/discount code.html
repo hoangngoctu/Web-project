@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mã Giảm Giá - BlueBus</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="shortcut icon" href="/img/favicon .ico" type="image/x-icon">
+    <style>
+        body {
+            background-color: #AEEEEE; /* Nền xanh nhạt */
+        }
+        .container {
+            margin-top: 50px;
+            max-width: 900px;
+        }
+        .discount-code-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            grid-gap: 20px;
+        }
+        .discount-code-item {
+            background-color: #ffffff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+            padding: 20px;
+            text-align: center;
+            transition: transform 0.2s;
+        }
+        .discount-code-item:hover {
+            transform: translateY(-5px);
+        }
+        .discount-code-item h3 {
+            font-size: 1.5rem;
+            margin-bottom: 10px;
+            color: #007bff;
+        }
+        .discount-code-item p {
+            font-size: 1rem;
+            color: #6c757d;
+            margin-bottom: 5px;
+        }
+        .discount-code-item button {
+            font-size: 1rem;
+            padding: 10px 15px;
+        }
+            .dropdown-item:hover {
+                background-color: #f8f9fa;
+                color: #007bff;
+        }
+        footer {
+            background-color: #007bff;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <header class="bg-primary text-white d-flex justify-content-between align-items-center py-4">
+        <div class="d-flex align-items-center">
+            <a href="/Post-login/index-login.html"> 
+                <img src="/img/Logo.png" alt="Logo" class="me-3" style="width: 50px;">
+            </a>
+            <h1 class="m-0">BlueBus</h1>
+        </div>
+        <div class="dropdown profile-icon ms-3">
+            <a href="#" class="dropdown-toggle" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg width="36" height="36" viewBox="0 0 24 24">
+                    <path d="M12 12c2.76 0 5-2.24 5-5S14.76 2 12 2 7 4.24 7 7s2.24 5 5 5z" stroke="#6c757d" stroke-width="2"/>
+                    <path d="M3.41 22c0-3.87 3.84-7 8.59-7s8.59 3.13 8.59 7" stroke="#6c757d" stroke-width="2"/>
+                </svg>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                <li><a class="dropdown-item" href="/customer/profile.html">Thông Tin Cá Nhân</a></li>
+                <li><a class="dropdown-item" href="/Post-login/search-login.html">Tìm Kiếm Chuyến Xe</a></li>
+                <li><a class="dropdown-item" href="/Post-login/discount code.html">Mã Giảm Giá</a></li>
+                <li><a class="dropdown-item" href="/Post-login/ticket.html">Vé Xe</a></li>
+                <li><a class="dropdown-item" href="/Post-login/change password.html">Đổi Mật Khẩu</a></li>  
+                <li><a class="dropdown-item" href="/index.html">Đăng Xuất</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="container">
+        <h2 class="text-center mb-4">Mã Giảm Giá</h2>
+        <div class="discount-code-container">
+            <div class="discount-code-item">
+                <h3>Chuyến Xe 45 Chỗ</h3>
+                <p>Giảm 20% cho chuyến xe đầu</p>
+                <p>Mã: "GIAM20"</p>
+                <button class="btn btn-success" onclick="applyDiscountCode('GIAM20')">Áp Dụng</button>
+            </div>
+            <div class="discount-code-item">
+                <h3>Chuyến Xe 29 Chỗ</h3>
+                <p>Giảm 10% cho lần đặt tiếp theo</p>
+                <p>Mã: "GIAM10BUS29"</p>
+                <button class="btn btn-success" onclick="applyDiscountCode('GIAM10BUS29')">Áp Dụng</button>
+            </div>
+            <div class="discount-code-item">
+                <h3>SIÊU ƯU ĐÃI</h3>
+                <p>Giảm 50.000 VNĐ cho tất cả các chuyến dài hơn 100 km</p>
+                <p>Mã: "GIAM50ALL"</p>
+                <button class="btn btn-success" onclick="applyDiscountCode('GIAM50ALL')">Áp Dụng</button>
+            </div>
+            <div class="discount-code-item">
+                <h3>Chuyến Xe 35 Chỗ</h3>
+                <p>Giảm 10% cho chuyến đặt trước 7 ngày</p>
+                <p>Mã: "SANGTHU"</p>
+                <button class="btn btn-success" onclick="applyDiscountCode('SANGTHU')">Áp Dụng</button>
+            </div>
+            <div class="discount-code-item">
+                <h3>Chuyến Xe Limousine</h3>
+                <p>Giảm 20% cho chuyến trong sự kiện thể thao lớn</p>
+                <p>Mã: "LETRA"</p>
+                <button class="btn btn-success" onclick="applyDiscountCode('LETRA')">Áp Dụng</button>
+            </div>
+            <div class="discount-code-item">
+                <h3>GIẢM GIÁ ĐẶC BIỆT!</h3>
+                <p>Giảm 30% khi thanh toán trực tuyến trên website</p>
+                <p>Mã: "XE30"</p>
+                <button class="btn btn-success" onclick="applyDiscountCode('XE30')">Áp Dụng</button>
+            </div>
+            <div class="discount-code-item">
+                <h3>CÀNG ĐÔNG, GIẢM CÀNG SÂU!</h3>
+                <p>Đặt từ 5 vé trở lên: Giảm 15%<br>
+                Đặt từ 10 vé trở lên: Giảm 20%<br>
+                Đặt từ 20 vé trở lên: Giảm 30%</p>
+                <p>Mã: "CANGDONGCANGVUI68"</p>
+                <button class="btn btn-success" onclick="applyDiscountCode('CANGDONGCANGVUI68')">Áp Dụng</button>
+            </div>
+            <div class="discount-code-item">
+                <h3>ƯU ĐÃI NGƯỜI MỚI</h3>
+                <p>Giảm 25% cho tất cả các chuyến đi và nhận thêm một vé giảm giá 10% cho các chuyến xe sau</p>
+                <p>Mã: "NGOIMOI"</p>
+                <button class="btn btn-success" onclick="applyDiscountCode('NGOIMOI')">Áp Dụng</button>
+            </div>
+        </div>
+    </div>
+
+    <footer class="text-white text-center py-4 mt-auto">
+        <p>&copy; 2024 BlueBus. Tất cả quyền thuộc về htu25578@gmail.com.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        function applyDiscountCode(discountCode) {
+            let message = '';
+
+            switch(discountCode) {
+                case 'GIAM20':
+                    message = 'Mã giảm giá "GIAM20" đã được áp dụng! Bạn sẽ nhận được 20% giảm giá.';
+                    break;
+                case 'GIAM10BUS29':
+                    message = 'Mã giảm giá "GIAM10BUS29" đã được áp dụng! Bạn sẽ nhận được 10% giảm giá cho lần đặt tiếp theo.';
+                    break;
+                case 'GIAM50ALL':
+                    message = 'Mã giảm giá "GIAM50ALL" đã được áp dụng! Bạn sẽ nhận được 50.000 VNĐ giảm cho chuyến dài hơn 100 km.';
+                    break;
+                case 'SANGTHU':
+                    message = 'Mã giảm giá "SANGTHU" đã được áp dụng! Bạn sẽ nhận được 10% giảm cho chuyến đặt trước 7 ngày.';
+                    break;
+                case 'LETRA':
+                    message = 'Mã giảm giá "LETRA" đã được áp dụng! Bạn sẽ nhận được 20% giảm cho chuyến trong sự kiện thể thao lớn.';
+                    break;
+                case 'XE30':
+                    message = 'Mã giảm giá "XE30" đã được áp dụng! Bạn sẽ nhận được 30% giảm khi thanh toán trực tuyến.';
+                    break;
+                case 'CANGDONGCANGVUI68':
+                    message = 'Mã giảm giá "CANGDONGCANGVUI68" đã được áp dụng! Bạn sẽ nhận được giảm giá theo số lượng vé đặt.';
+                    break;
+                case 'NGOIMOI':
+                    message = 'Mã giảm giá "NGOIMOI" đã được áp dụng! Bạn sẽ nhận được 25% giảm cho chuyến đi đầu tiên.';
+                    break;
+                default:
+                    message = 'Mã giảm giá không hợp lệ!';
+            }
+
+            alert(message);
+        }
+    </script>
+</body>
+</html>

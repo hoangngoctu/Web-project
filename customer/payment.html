@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueBus - Thanh Toán Vé Xe</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/customer.css">
+    <link rel="shortcut icon" href="/img/favicon.ico" type="image/x-icon">
+    <style>
+        .payment-header {
+            margin-top: 20px;
+            font-size: 24px;
+            font-weight: bold;
+        }
+        .btn-payment {
+            background-color: #28a745;
+            color: white;
+        }
+        .btn-payment:hover {
+            background-color: #218838;
+        }
+        .countdown-text {
+            font-size: 36px;
+            font-weight: bold;
+            color: #dc3545;
+        }
+        .ant-row {
+            margin-top: 20px;
+        }
+        .ant-col-label {
+            font-weight: bold;
+        }
+        .ant-col-value {
+            text-align: right;
+        }
+    </style>
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+    <header class="bg-primary text-white d-flex justify-content-between align-items-center py-4">
+        <div class="d-flex align-items-center">
+            <a href="/Post-login/index-login.html"> 
+                <img src="/img/Logo.png" alt="Logo" class="me-3" style="width: 50px;">
+            </a>
+            <h1 class="m-0">BlueBus</h1>
+        </div>
+        <div class="dropdown profile-icon ms-3">
+            <a href="#" class="dropdown-toggle" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+                <svg width="36" height="36" viewBox="0 0 24 24">
+                    <path d="M12 12c2.76 0 5-2.24 5-5S14.76 2 12 2 7 4.24 7 7s2.24 5 5 5z" stroke="#6c757d" stroke-width="2"/>
+                    <path d="M3.41 22c0-3.87 3.84-7 8.59-7s8.59 3.13 8.59 7" stroke="#6c757d" stroke-width="2"/>
+                </svg>
+            </a>
+            <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+                <li><a class="dropdown-item" href="/customer/profile.html">Thông Tin Cá Nhân</a></li>
+                <li><a class="dropdown-item" href="/Post-login/search-login.html">Tìm Kiếm Chuyến Xe</a></li>
+                <li><a class="dropdown-item" href="/Post-login/discount code.html">Mã Giảm Giá</a></li>
+                <li><a class="dropdown-item" href="/Post-login/ticket.html">Vé Xe</a></li>
+                <li><a class="dropdown-item" href="/Post-login/change password.html">Đổi Mật Khẩu</a></li>  
+                <li><a class="dropdown-item" href="/index.html">Đăng Xuất</a></li>
+            </ul>
+        </div>
+    </header>
+
+<div class="container mt-5">
+    <h1 class="payment-header">Thanh Toán Vé Xe</h1>
+    
+    <div class="card">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-6">
+                    <div class="countdown-text" id="countdown-text">900</div>
+                </div>
+                <div class="col-6 text-end">
+                    Thời gian thanh toán còn lại
+                </div>
+            </div>
+            <form id="paymentForm">
+                <div class="ant-row">
+                    <div class="ant-col-12 ant-col-label">Tổng Số Tiền</div>
+                    <div class="ant-col-12 ant-col-value">
+                        <input type="number" class="form-control" id="totalAmount" placeholder="Nhập số tiền" required>
+                    </div>
+                </div>
+                <div class="ant-row">
+                    <div class="ant-col-12 ant-col-label">Phương Thức Thanh Toán</div>
+                    <div class="ant-col-12 ant-col-value">
+                        <select class="form-select" id="paymentMethod" required>
+                            <option value="" disabled selected>Chọn phương thức</option>
+                            <option value="creditCard">Thẻ Tín Dụng</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="bankTransfer">Chuyển Khoản Ngân Hàng</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="text-end">
+                    <button type="submit" class="btn btn-payment">Thanh Toán</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<footer class="bg-primary text-white text-center py-4 mt-auto">
+    <p>&copy; 2024 BlueBus. Tất cả quyền thuộc về htu25578@gmail.com.</p>
+</footer>
+
+<script>
+    let countdownTimer;
+    let remainingSeconds = 900; // 15 phút
+
+    function updateCountdownText() {
+        const countdownText = document.getElementById('countdown-text');
+        const minutes = Math.floor(remainingSeconds / 60);
+        const seconds = remainingSeconds % 60;
+        countdownText.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+    }
+
+    function startCountdown() {
+        countdownTimer = setInterval(() => {
+            remainingSeconds--;
+            updateCountdownText();
+            if (remainingSeconds <= 0) {
+                clearInterval(countdownTimer);
+                alert('Thời gian thanh toán đã hết.');
+            }
+        }, 1000);
+    }
+
+    document.getElementById('paymentForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        alert('Thanh toán thành công!');
+        // Thêm logic xử lý thanh toán ở đây
+    });
+
+    startCountdown();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

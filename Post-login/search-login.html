@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BlueBus - Tìm Kiếm Chuyến Đi</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/customer.css">
+    <link rel="shortcut icon" href="/img/favicon .ico" type="image/x-icon">
+    <style>
+        .dropdown-menu {
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+    
+        .dropdown-item {
+            color: #495057;
+            padding: 0.5rem 1rem;
+            transition: background-color 0.2s;
+        }
+    
+        .dropdown-item:hover {
+            background-color: #f8f9fa;
+            color: #007bff;
+        }
+    
+        .profile-icon a {
+            display: flex;
+            align-items: center;
+            color: #6c757d;
+            text-decoration: none;
+        }
+    
+        .profile-icon a:hover {
+            color: #007bff;
+        }
+    </style>
+   
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <header class="text-white d-flex justify-content-between align-items-center">
+        <div class="d-flex align-items-center">
+            <a href="/Post-login/index-login.html">
+                <img src="/img/Logo.png" alt="Logo" class="me-3" style="width: 50px;">
+            </a>
+            <h1 class="m-0">BlueBus</h1>
+        </div>
+
+        <!-- chuyển hướng trang -->
+    <div class="dropdown profile-icon ms-3">
+        <a href="#" class="dropdown-toggle" id="profileDropdown" data-bs-toggle="dropdown" aria-expanded="false">
+            <svg width="36" height="36" viewBox="0 0 24 24">
+                <path d="M12 12c2.76 0 5-2.24 5-5S14.76 2 12 2 7 4.24 7 7s2.24 5 5 5z" stroke="#6c757d" stroke-width="2"/>
+                <path d="M3.41 22c0-3.87 3.84-7 8.59-7s8.59 3.13 8.59 7" stroke="#6c757d" stroke-width="2"/>
+            </svg>
+        </a>
+        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="profileDropdown">
+            <li><a class="dropdown-item" href="/customer/profile.html">Thông Tin Cá Nhân</a></li>
+            <li><a class="dropdown-item" href="/Post-login/search-login.html">Tìm Kiếm Chuyến Xe</a></li>
+            <li><a class="dropdown-item" href="/Post-login/discount code.html">Mã Giảm Giá</a></li>
+            <li><a class="dropdown-item" href="/Post-login/ticket.html">Vé Xe</a></li>
+            <li><a class="dropdown-item" href="/Post-login/change password.html">Đổi Mật Khẩu</a></li>  
+            <li><a class="dropdown-item" href="/index.html">Đăng Xuất</a></li>
+        </ul>
+    </div>
+
+    </header>
+
+    <div class="container my-5 flex-grow-1">
+        <div class="search-box">
+            <h2 class="text-center mb-4">Tìm Kiếm Chuyến Xe </h2>
+            <div class="input-group mb-4 border rounded-pill shadow-sm">
+                <div class="input-group-text">Nơi đi</div>
+                <select id="departure" class="form-select" aria-label="Nơi đi">
+                    <option selected>Chọn nơi đi</option>
+                    <option value="An Giang">An Giang</option>
+                    <option value="Bà Rịa-Vũng Tàu">Bà Rịa-Vũng Tàu</option>
+                    <option value="Bắc Giang">Bắc Giang</option>
+                    <option value="Bắc Kạn">Bắc Kạn</option>
+                    <option value="Bạc Liêu">Bạc Liêu</option>
+                    <option value="Bắc Ninh">Bắc Ninh</option>
+                    <option value="Bến Tre">Bến Tre</option>
+                    <option value="Bình Định">Bình Định</option>
+                    <option value="Bình Dương">Bình Dương</option>
+                    <option value="Bình Phước">Bình Phước</option>
+                    <option value="Bình Thuận">Bình Thuận</option>
+                    <option value="Cà Mau">Cà Mau</option>
+                    <option value="Cần Thơ">Cần Thơ</option>
+                    <option value="Cao Bằng">Cao Bằng</option>
+                    <option value="Đà Nẵng">Đà Nẵng</option>
+                    <option value="Đắk Lắk">Đắk Lắk</option>
+                    <option value="Đắk Nông">Đắk Nông</option>
+                    <option value="Điện Biên">Điện Biên</option>
+                    <option value="Đồng Nai">Đồng Nai</option>
+                    <option value="Đồng Tháp">Đồng Tháp</option>
+                    <option value="Gia Lai">Gia Lai</option>
+                    <option value="Hà Giang">Hà Giang</option>
+                    <option value="Hà Nam">Hà Nam</option>
+                    <option value="Hà Nội">Hà Nội</option>
+                    <option value="Hà Tĩnh">Hà Tĩnh</option>
+                    <option value="Hải Dương">Hải Dương</option>
+                    <option value="Hải Phòng">Hải Phòng</option>
+                    <option value="Hậu Giang">Hậu Giang</option>
+                    <option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option>
+                    <option value="Hòa Bình">Hòa Bình</option>
+                    <option value="Hưng Yên">Hưng Yên</option>
+                    <option value="Khánh Hòa">Khánh Hòa</option>
+                    <option value="Kiên Giang">Kiên Giang</option>
+                    <option value="Kon Tum">Kon Tum</option>
+                    <option value="Lai Châu">Lai Châu</option>
+                    <option value="Lâm Đồng">Lâm Đồng</option>
+                    <option value="Lạng Sơn">Lạng Sơn</option>
+                    <option value="Lào Cai">Lào Cai</option>
+                    <option value="Long An">Long An</option>
+                    <option value="Nam Định">Nam Định</option>
+                    <option value="Nghệ An">Nghệ An</option>
+                    <option value="Ninh Bình">Ninh Bình</option>
+                    <option value="Ninh Thuận">Ninh Thuận</option>
+                    <option value="Phú Thọ">Phú Thọ</option>
+                    <option value="Phú Yên">Phú Yên</option>
+                    <option value="Quảng Bình">Quảng Bình</option>
+                    <option value="Quảng Nam">Quảng Nam</option>
+                    <option value="Quảng Ngãi">Quảng Ngãi</option>
+                    <option value="Quảng Ninh">Quảng Ninh</option>
+                    <option value="Quảng Trị">Quảng Trị</option>
+                    <option value="Sóc Trăng">Sóc Trăng</option>
+                    <option value="Sơn La">Sơn La</option>
+                    <option value="Tây Ninh">Tây Ninh</option>
+                    <option value="Thái Bình">Thái Bình</option>
+                    <option value="Thái Nguyên">Thái Nguyên</option>
+                    <option value="Thanh Hóa">Thanh Hóa</option>
+                    <option value="Thừa Thiên - Huế">Thừa Thiên - Huế</option>
+                    <option value="Tiền Giang">Tiền Giang</option>
+                    <option value="Trà Vinh">Trà Vinh</option>
+                    <option value="Tuyên Quang">Tuyên Quang</option>
+                    <option value="Vĩnh Long">Vĩnh Long</option>
+                    <option value="Vĩnh Phúc">Vĩnh Phúc</option>
+                    <option value="Yên Bái">Yên Bái</option>
+                </select>
+
+                <div class="input-group-text">Nơi đến</div>
+                <select id="destination" class="form-select" aria-label="Nơi đến">
+                    <option selected>Chọn nơi đi</option>
+                    <option value="An Giang">An Giang</option>
+                    <option value="Bà Rịa-Vũng Tàu">Bà Rịa-Vũng Tàu</option>
+                    <option value="Bắc Giang">Bắc Giang</option>
+                    <option value="Bắc Kạn">Bắc Kạn</option>
+                    <option value="Bạc Liêu">Bạc Liêu</option>
+                    <option value="Bắc Ninh">Bắc Ninh</option>
+                    <option value="Bến Tre">Bến Tre</option>
+                    <option value="Bình Định">Bình Định</option>
+                    <option value="Bình Dương">Bình Dương</option>
+                    <option value="Bình Phước">Bình Phước</option>
+                    <option value="Bình Thuận">Bình Thuận</option>
+                    <option value="Cà Mau">Cà Mau</option>
+                    <option value="Cần Thơ">Cần Thơ</option>
+                    <option value="Cao Bằng">Cao Bằng</option>
+                    <option value="Đà Nẵng">Đà Nẵng</option>
+                    <option value="Đắk Lắk">Đắk Lắk</option>
+                    <option value="Đắk Nông">Đắk Nông</option>
+                    <option value="Điện Biên">Điện Biên</option>
+                    <option value="Đồng Nai">Đồng Nai</option>
+                    <option value="Đồng Tháp">Đồng Tháp</option>
+                    <option value="Gia Lai">Gia Lai</option>
+                    <option value="Hà Giang">Hà Giang</option>
+                    <option value="Hà Nam">Hà Nam</option>
+                    <option value="Hà Nội">Hà Nội</option>
+                    <option value="Hà Tĩnh">Hà Tĩnh</option>
+                    <option value="Hải Dương">Hải Dương</option>
+                    <option value="Hải Phòng">Hải Phòng</option>
+                    <option value="Hậu Giang">Hậu Giang</option>
+                    <option value="TP. Hồ Chí Minh">TP. Hồ Chí Minh</option>
+                    <option value="Hòa Bình">Hòa Bình</option>
+                    <option value="Hưng Yên">Hưng Yên</option>
+                    <option value="Khánh Hòa">Khánh Hòa</option>
+                    <option value="Kiên Giang">Kiên Giang</option>
+                    <option value="Kon Tum">Kon Tum</option>
+                    <option value="Lai Châu">Lai Châu</option>
+                    <option value="Lâm Đồng">Lâm Đồng</option>
+                    <option value="Lạng Sơn">Lạng Sơn</option>
+                    <option value="Lào Cai">Lào Cai</option>
+                    <option value="Long An">Long An</option>
+                    <option value="Nam Định">Nam Định</option>
+                    <option value="Nghệ An">Nghệ An</option>
+                    <option value="Ninh Bình">Ninh Bình</option>
+                    <option value="Ninh Thuận">Ninh Thuận</option>
+                    <option value="Phú Thọ">Phú Thọ</option>
+                    <option value="Phú Yên">Phú Yên</option>
+                    <option value="Quảng Bình">Quảng Bình</option>
+                    <option value="Quảng Nam">Quảng Nam</option>
+                    <option value="Quảng Ngãi">Quảng Ngãi</option>
+                    <option value="Quảng Ninh">Quảng Ninh</option>
+                    <option value="Quảng Trị">Quảng Trị</option>
+                    <option value="Sóc Trăng">Sóc Trăng</option>
+                    <option value="Sơn La">Sơn La</option>
+                    <option value="Tây Ninh">Tây Ninh</option>
+                    <option value="Thái Bình">Thái Bình</option>
+                    <option value="Thái Nguyên">Thái Nguyên</option>
+                    <option value="Thanh Hóa">Thanh Hóa</option>
+                    <option value="Thừa Thiên - Huế">Thừa Thiên - Huế</option>
+                    <option value="Tiền Giang">Tiền Giang</option>
+                    <option value="Trà Vinh">Trà Vinh</option>
+                    <option value="Tuyên Quang">Tuyên Quang</option>
+                    <option value="Vĩnh Long">Vĩnh Long</option>
+                    <option value="Vĩnh Phúc">Vĩnh Phúc</option>
+                    <option value="Yên Bái">Yên Bái</option>
+                </select>
+
+                <div class="input-group-text">Ngày đi</div>
+                <input type="date" id="date" class="form-control" aria-label="Ngày đi">
+
+                <div class="input-group-text">Số lượng khách</div>
+                <input type="number" id="passengers" class="form-control" placeholder="1" aria-label="Số lượng khách">
+
+                <button id="searchButton" class="btn btn-danger rounded-pill">
+                    <i class="bi bi-search"></i> Tìm Kiếm
+                </button>
+            </div>
+        </div>
+
+        <div class="results mt-4" id="results" style="display: none;">
+            <h3 class="text-center">Danh Sách Chuyến Xe</h3>
+            <div class="list-group" id="tripList"></div>
+        </div>
+    </div>
+
+    <footer class="text-white text-center">
+        <p>&copy; 2024 BlueBus. Tất cả quyền được bảo lưu.</p>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.getElementById('searchButton').addEventListener('click', function () {
+            const departure = document.getElementById('departure').value;
+            const destination = document.getElementById('destination').value;
+            const date = document.getElementById('date').value;
+            const passengers = document.getElementById('passengers').value;
+    
+            if (!departure || !destination || !date || !passengers) {
+                alert('Vui lòng điền đầy đủ thông tin!');
+                return;
+            }
+    
+            const resultsDiv = document.getElementById('results');
+            const tripList = document.getElementById('tripList');
+            tripList.innerHTML = '';
+    
+            // Dữ liệu chuyến xe
+            const trips = [
+                {
+                    id: 1,
+                    info: `Chuyến Xe 45 Chỗ: ${departure} - ${destination}`,
+                    price: '500,000 VNĐ',
+                    images: ['/img/imgcar/45cho1.jpg', '/img/imgcar/45cho2.jpg', '/img/imgcar/45cho3.jpg'],
+                    discounts: ['GIAM20 - Giảm 20% cho chuyến xe đầu!'],
+                    reviews: [
+                        { name: 'Nguyễn Văn A', comment: 'Xe rất thoải mái, tài xế thân thiện!' },
+                        { name: 'Trần Thị B', comment: 'Giá cả hợp lý và dịch vụ tốt.' }
+                    ]
+                },
+                {
+                    id: 2,
+                    info: `Chuyến Xe 29 Chỗ: ${departure} - ${destination}`,
+                    price: '800,000 VNĐ',
+                    images: ['/img/imgcar/29cho1.jpg', '/img/imgcar/29cho2.jpg', '/img/imgcar/29cho3.jpg'],
+                    discounts: ['GIAM10BUS29 - Giảm 10% cho lần đặt tiếp theo!', 'GIAM50 - Giảm 50.000 VNĐ cho chuyến dài hơn 100 km'],
+                    reviews: [
+                        { name: 'Lê Văn C', comment: 'Chuyến đi rất suôn sẻ, sẽ quay lại lần nữa!' },
+                        { name: 'Nguyễn Thị D', comment: 'Tài xế lái xe an toàn và chuyên nghiệp. Rất hài lòng với dịch vụ!' }
+                    ]
+                },
+                {
+                    id: 3,
+                    info: `Chuyến Xe 35 Chỗ: ${departure} - ${destination}`,
+                    price: '900,000 VNĐ',
+                    images: ['/img/imgcar/35cho1.jpg', '/img/imgcar/35cho2.jpg', '/img/imgcar/35cho3.jpg'],
+                    discounts: ['GIAM15 - Giảm 15% cho chuyến này!', 'SANGTHU - Giảm 10% cho chuyến đặt trước 7 ngày'],
+                    reviews: [
+                        { name: 'Phạm Minh T', comment: 'Dịch vụ tuyệt vời, tôi rất hài lòng!' },
+                        { name: 'Trần Thị H', comment: 'Rất thích cách phục vụ của nhân viên. Họ rất chu đáo và tận tình!' },
+                    ]
+                },
+                {
+                    id: 4,
+                    info: `Chuyến Xe Limousine: ${departure} - ${destination}`,
+                    price: '1,500,000 VNĐ',
+                    images: ['/img/imgcar/limousine1.jpg', '/img/imgcar/limousine2.jpg', '/img/imgcar/limousine3.jpg'],
+                    discounts: ['GIAM10 - Giảm 10% cho lần đặt tiếp theo!', 'LETRA - Giảm 20% cho chuyến trong sự kiện thể thao lớn'],
+                    reviews: [
+                        { name: 'Nguyễn Thị C', comment: 'Chuyến đi rất suôn sẻ, sẽ quay lại lần nữa!' },
+                        { name: 'Phạm Văn D', comment: 'Chuyến đi rất suôn sẻ, sẽ quay lại lần nữa! Không gian bên trong xe rất sang trọng và thoải mái.' },
+                        { name: 'Hoàng Văn Z', comment: 'Tôi đã có trải nghiệm tuyệt vời! Dịch vụ chăm sóc khách hàng rất tốt và xe rất đẹp' }
+                    ]
+                }
+            ];
+    
+            trips.forEach(trip => {
+                const listItem = document.createElement('div');
+                listItem.className = 'trip-box';
+                listItem.innerHTML = `
+                    <div class="trip-info">
+                        <strong>${trip.info}</strong>
+                        <p class="mb-1">Giá: ${trip.price}</p>
+                        <div class="button-group">
+                            <a href="#" class="detail-link" data-id="${trip.id}">Xem chi tiết</a>
+                            <button class="book-link" data-trip-id="${trip.id}" data-departure="${departure}" data-destination="${destination}" data-date="${date}" data-passengers="${passengers}">Đặt xe</button>
+                        </div>
+                    </div>
+                    <div class="detail-section" id="detail-${trip.id}" style="display: none;">
+                        <div class="row">
+                            <div class="col-md-4">
+                                <div class="toggle-section" data-target="images-${trip.id}">Hình Ảnh</div>
+                                <div class="content" id="images-${trip.id}" style="display: none;">
+                                    <div id="carousel-${trip.id}" class="carousel slide" data-bs-ride="carousel" data-bs-interval="2000">
+                                        <div class="carousel-inner">
+                                            ${trip.images.map((image, index) => `
+                                                <div class="carousel-item ${index === 0 ? 'active' : ''}">
+                                                    <img src="${image}" class="d-block w-100" style="width: 100%; height: auto; max-height: 500px;" alt="Hình ảnh chuyến xe ${trip.id}">
+                                                </div>
+                                            `).join('')}
+                                        </div>
+                                        <button class="carousel-control-prev" type="button" data-bs-target="#carousel-${trip.id}" data-bs-slide="prev">
+                                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Previous</span>
+                                        </button>
+                                        <button class="carousel-control-next" type="button" data-bs-target="#carousel-${trip.id}" data-bs-slide="next">
+                                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                            <span class="visually-hidden">Next</span>
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="toggle-section" data-target="discounts-${trip.id}">Mã Giảm Giá</div>
+                                <div class="content" id="discounts-${trip.id}" style="display: none;">
+                                    ${trip.discounts.map(discount => `<p class="bg-light p-2">${discount}</p>`).join('')}
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="toggle-section" data-target="reviews-${trip.id}">Đánh Giá Khách Hàng</div>
+                                <div class="content" id="reviews-${trip.id}" style="display: none;">
+                                    ${trip.reviews.map(review => `
+                                        <div class="bg-light p-3 mb-2">
+                                            <strong>${review.name}:</strong> ${review.comment}
+                                        </div>
+                                    `).join('')}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                `;
+                tripList.appendChild(listItem);
+            });
+    
+            resultsDiv.style.display = 'block';
+    
+            // Lưu thông tin tìm kiếm vào localStorage
+            const searchHistory = JSON.parse(localStorage.getItem('searchHistory')) || [];
+            searchHistory.push({ departure, destination, date, passengers, trips });
+            localStorage.setItem('searchHistory', JSON.stringify(searchHistory));
+            
+    
+            // Thêm sự kiện cho nút "Xem chi tiết"
+            document.querySelectorAll('.detail-link').forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const tripId = this.getAttribute('data-id');
+                    const section = document.getElementById(`detail-${tripId}`);
+                    section.style.display = section.style.display === 'none' ? 'block' : 'none';
+                });
+            });
+    
+            // Thêm sự kiện cho các phần toggle
+            document.querySelectorAll('.toggle-section').forEach(section => {
+                section.addEventListener('click', function () {
+                    const targetId = this.getAttribute('data-target');
+                    const content = document.getElementById(targetId);
+                    content.style.display = content.style.display === 'none' ? 'block' : 'none';
+                });
+            });
+    
+            // Thêm sự kiện cho nút "Đặt xe"
+            document.querySelectorAll('.book-link').forEach(button => {
+                button.addEventListener('click', function () {
+                    const tripId = this.getAttribute('data-trip-id');
+                    const trip = trips.find(t => t.id == tripId);
+                    
+                    // Lưu thông tin chuyến xe đã đặt vào localStorage
+                    const tripsData = JSON.parse(localStorage.getItem('tripsData')) || {
+                        completed: [],
+                        canceled: [],
+                        upcoming: []
+                    };
+                    tripsData.upcoming.push({
+                        from: departure,
+                        to: destination,
+                        date: date,
+                        status: 'Chờ xác nhận',
+                        passengers: passengers
+                    });
+                    localStorage.setItem('tripsData', JSON.stringify(tripsData));
+    
+                    alert('Chuyến xe đã được đặt thành công!');
+                    window.location.href = '/customer/payment.html'; // Chuyển đến trang 
+                });
+            });
+        });
+    </script>
+    
+</body>
+
+</html>
