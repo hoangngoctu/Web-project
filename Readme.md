@@ -39,18 +39,25 @@ Mục tiêu của ứng dụng là cung cấp dịch vụ đặt vé,bên cạnh
      ![alt text](image-5.png)
 
 ## Các chức năng của trang web
- - Tìm kiếm chuyến xe theo điểm khởi hành, điểm đến, ngày giờ và số lượng hành khách.
- - Chọn chuyến xe phù hợp và thực hiện đăng ký/đăng nhập.
- - Quản lý và cập nhật thông tin như số điện thoại,tên,địa chỉ,…
- - Đặt vé và quản lý vé đã đặt, bao gồm kiểm tra, hủy vé và nhận thông báo về tình trạng chuyến đi.
+-	Đăng ký/ Đăng nhập:Khách hàng sẽ đăng ký và đăng nhập vào hệ thống để có thể bắt đầu tìm kiếm chuyến xe và đặt vé.
+-	Tìm kiếm chuyến xe:Sau khi đăng nhập,khách hàng sẽ tìm kiếm chuyến xe dựa trên nhu cầu của mỗi người và thực hiện việc đặt vé.
+-	Đặt vé và thanh toán:Sau khi tìm kiếm chuyến xe,khách hàng thực hiện việc đặt vé xe và thanh toán.
+-	Kiểm tra và hủy vé:Sau khi thanh toán thành cồng,mỗi khách hàng sẽ tự kiểm tra vé của mình và có thể hủy vé trước thời gian quy định.
+
  
 ## Quy trình đặt vé xe khách
-- B1: Khi người dùng bắt đầu vào trang web,người dùng có thể chọn phần điều hướng là tìm kiếm chuyến xe hoặc đăng nhập/đăng ký ở trên thanh header.
-  - TH1:Người dùng ấn vào thanh tìm kiếm và chọn chuyến xe khi đó ấn nút “đặt vé ” thì hệ thống sẽ tự động điều hướng đến phần đăng ký/đăng nhập.
-  - TH2:Người dùng nhấn vào phần đăng ký/đăng nhập,ở đây nếu chưa có tài khoản người dùng sẽ phải đăng ký và tạo tài khoản để đăng nhập vào hệ thống.
-- B2: Sau khi đã đăng nhập được và hệ thống,người dùng sẽ tìm đến chức năng tìm kiếm chuyến xe nằm trong biểu tượng icon trên thanh header,tại đây sẽ nhập thông tin cần thiết (nơi đi, nơi đến, ngày đi, số lượng khách) để tìm chuyến xe.
-- B3: Sau khi chọn chuyến xe, người dùng ấn nút “Đặt vé” và sẽ được đưa đến trang vé xe để xác nhận và đặt vé và thanh toán.
-- B4: Người dùng sau khi đặt vé thành công hệ thống sẽ hiện lên thông báo đã đặt vé thành công.Và trong cùng trang vé xe đó người dùng có thể xem lại các chuyến xe đã đặt,đã đi và có thể hủy vé.
+-	Đối với khách hàng chưa có tài khoản.
+•	B1:Khi khách hàng bắt đầu vào trang web sẽ nhấn tới thanh điểu hướng đăng nhập/đăng ký.Tại đây khách hàng chưa có tài khoản nên sẽ đăng ký tài khoản,khách hàng sẽ phải nhập các trường thông tin cần thiết như:tên người dùng,gmail,số điện thoại,mật khẩu và xác nhận mật khẩu.Sau khi đã đăng ký tài khoản thành công,khách hàng sẽ thực hiện đăng nhập để có thể sử dụng các dịch vụ của trang web.
+•	B2:Sau khi đã đăng nhập thành công,khách hàng sẽ cập nhật và xác thực lại các thông tin cá nhân của mình qua mục thông tin cá nhân.
+•	B3:Sau khi cập nhật thành công,sẽ thực hiện việc tìm kiếm các chuyến xe tại mục “Tìm kiếm chuyến xe”.Tại đây khách hàng sẽ thực hiện việc tìm kiếm chuyến xe dựa trên nơi đến,nơi đi,ngày đi,số lượng khách, và khách hàng sẽ tìm kiếm dựa trên nhu cầu của mỗi người.
+•	B4:Sau khi tìm kiếm chuyến xe thành công,khách hàng sẽ được đưa đến tới trang thanh toán,tại đây khách hàng sẽ thực hiện việc nhập số tiền cần thanh toán và thanh toán qua việc chuyển khoản.
+•	B5:Nếu đã thanh toán thanh công,khách hàng sẽ có thể xem lại vé xe của mình tại mục vé xe,và có thể hủy chuyến trước thời gian quy định của hệ thống.
+- Đối với khách hàng đã có tài khoản.
+•	B1:Khách hàng khi đã có tài khoản sẽ thực hiện việc đăng nhập để có thể vào sử dụng các dịch vụ của hệ thống.
+•	B2:Khách hàng cũng thực hiện các bước như tìm kiếm chuyến xe và thực hiện việc đặt vé.
+•	B3: Tại mục đặt vé khách hàng có thể nhập các mã giảm giá mà khách hàng đã tích được khi đã trải nghiệm dịch vụ, và tiếp tục thực hiện việc thanh toán.
+•	B3: Sau khi thanh toán thành công, khách hàng có thể xem lại vé xe của mình tại mục vé xe, và có thể hủy chuyến trước thời gian quy định của hệ thống.
+
 ## Sơ đồ phân rã chức năng
 ![alt text](image-6.png)
 
