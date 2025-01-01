@@ -140,15 +140,16 @@
         </div>
     </div>
 
-    <script>
-        let countdownTimer;
+    <!-- <script>
+        //khai báo biến
+        let countdownTimer;  
         let remainingSeconds = 900; // 15 phút
 
         function updateCountdownText() {
             const countdownText = document.getElementById('countdown-text');
             const minutes = Math.floor(remainingSeconds / 60);
             const seconds = remainingSeconds % 60;
-            countdownText.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
+            countdownText.textContent = `${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`; //luôn hiển thị 2 số
         }
 
         function startCountdown() {
@@ -161,7 +162,7 @@
                 }
             }, 1000);
         }
-
+//Sử lý sự kiện form thanh toán
         document.getElementById('paymentForm').addEventListener('submit', function(event) {
             event.preventDefault();
             const paymentMethod = document.getElementById('paymentMethod').value;
@@ -178,8 +179,7 @@
                 const billModal = new bootstrap.Modal(document.getElementById('billModal'));
                 billModal.show();
             } else {
-                alert('Thanh toán thành công!');
-                // Thêm logic xử lý thanh toán ở đây
+                alert('Thanh toán thành công!');              
             }
         });
 
@@ -193,6 +193,6 @@
         startCountdown();
     </script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script> -->
 </body>
 </html>

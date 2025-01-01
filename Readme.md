@@ -38,6 +38,8 @@ Mục tiêu của ứng dụng là cung cấp dịch vụ đặt vé,bên cạnh
 
      ![alt text](image-5.png)
 
+- Figma: Dung để thiết kế wrieframe và Ui.
+
 ## Các chức năng của trang web
 -	Đăng ký/ Đăng nhập:Khách hàng sẽ đăng ký và đăng nhập vào hệ thống để có thể bắt đầu tìm kiếm chuyến xe và đặt vé.
 -	Tìm kiếm chuyến xe:Sau khi đăng nhập,khách hàng sẽ tìm kiếm chuyến xe dựa trên nhu cầu của mỗi người và thực hiện việc đặt vé.
